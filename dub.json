@@ -1,0 +1,27 @@
+{
+	"name": "pprof-diff",
+	"description": "Diff two Go pprof heap profiles",
+	"authors": [],
+	"license": "MIT",
+	"copyright": "Copyright (c) 2026",
+	"targetType": "executable",
+	"mainSourceFile": "source/app.d",
+	"dependencies": {},
+	"configurations": [
+		{
+			"name": "application",
+			"targetType": "executable",
+			"mainSourceFile": "source/app.d"
+		},
+		{
+			"name": "golden-test",
+			"targetType": "executable",
+			"mainSourceFile": "test/golden_test.d"
+		},
+		{
+			"name": "gen-examples",
+			"targetType": "executable",
+			"mainSourceFile": "tools/gen_examples.d"
+		}
+	]
+}

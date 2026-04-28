@@ -1,0 +1,7 @@
+.dub
+__test__*__
+*.obj
+*.pdb
+*.exe
+*.o
+*.lst
