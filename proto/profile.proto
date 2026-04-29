@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+package perftools.profiles;
+
+message ValueType {
+  int64 type = 1;
+  int64 unit = 2;
+}
+
+message Label {
+  int64 key = 1;
+  int64 str = 2;
+  int64 num = 3;
+  int64 num_unit = 4;
+}
+
+message Sample {
+  repeated int64 location_id = 1;
+  repeated int64 value = 2;
+  repeated Label label = 3;
+}
+
+message Line {
+  int64 function_id = 1;
+  int64 line = 2;
+  int64 column = 3;
+}
+
+message Location {
+  int64 id = 1;
+  int64 mapping_id = 2;
+  int64 address = 3;
+  repeated Line line = 4;
+  bool is_folded = 5;
+}
+
+message Function {
+  int64 id = 1;
+  int64 name = 2;
+  int64 system_name = 3;
+  int64 filename = 4;
+  int64 start_line = 5;
+}
+
+message Mapping {
+  int64 id = 1;
+  int64 memory_start = 2;
+  int64 memory_limit = 3;
+  int64 file_offset = 4;
+  int64 filename = 5;
+  int64 build_id = 6;
+}
+
+message Profile {
+  repeated ValueType sample_type = 1;
+  repeated Sample sample = 2;
+  repeated Mapping mapping = 3;
+  repeated Location location = 4;
+  repeated Function functions = 5;
+  repeated string string_table = 6;
+}
