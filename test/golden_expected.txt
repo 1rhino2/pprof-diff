@@ -1,0 +1,23 @@
+pprof-diff
+==========
+
+Top regressions (bytes)
+-----------------------
+  1  main.leaky                                        +120.0 KiB bytes       +30 objs
+
+Top improvements (bytes)
+------------------------
+(none)
+
+Disappeared since before
+------------------------
+  1  runtime.mallocgc                                    -512 B bytes        -2 objs
+
+New since before
+----------------
+  1  bufio.NewReaderSize                               +24.0 KiB bytes        +6 objs
+
+Top regressions (object count)
+--------------------------------
+  1  main.leaky                                        +120.0 KiB bytes       +30 objs
+
