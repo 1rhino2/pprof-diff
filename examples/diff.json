@@ -1,0 +1,36 @@
+{
+  "grew": [
+    {
+      "key": "main.leaky",
+      "d_bytes": 122880,
+      "d_objects": 30,
+      "before_bytes": 40960,
+      "after_bytes": 163840,
+      "before_objects": 10,
+      "after_objects": 40
+    }
+  ],
+  "shrank": [],
+  "vanished": [
+    {
+      "key": "runtime.mallocgc",
+      "d_bytes": -512,
+      "d_objects": -2,
+      "before_bytes": 512,
+      "after_bytes": 0,
+      "before_objects": 2,
+      "after_objects": 0
+    }
+  ],
+  "appeared": [
+    {
+      "key": "bufio.NewReaderSize",
+      "d_bytes": 24576,
+      "d_objects": 6,
+      "before_bytes": 0,
+      "after_bytes": 24576,
+      "before_objects": 0,
+      "after_objects": 6
+    }
+  ]
+}
