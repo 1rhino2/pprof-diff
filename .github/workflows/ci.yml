@@ -1,0 +1,27 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dlang-community/setup-dlang@v1
+        with:
+          compiler: dmd-latest
+      - name: build release
+        run: dub build --build=release
+      - name: golden test
+        run: dub run --config=gen-examples --build=release
+      - name: run golden test
+        run: dub run --config=golden-test --build=release
+      - name: smoke diff
+        run: dub run --build=release -- examples/before.prof examples/after.prof --top 3
