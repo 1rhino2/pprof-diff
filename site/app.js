@@ -1,5 +1,6 @@
 ﻿function formatBytes(n) {
-  const sign = n < 0 ? -1 : 1;
+  if (n === 0) return '0 B';
+  const sign = n < 0 ? '-' : '+';
   let v = Math.abs(n);
   const units = ['B', 'KiB', 'MiB', 'GiB'];
   let u = 0;
@@ -7,8 +8,8 @@
     v /= 1024;
     u += 1;
   }
-  if (u === 0) return (sign < 0 ? '-' : '+') + v + ' ' + units[0];
-  return (sign < 0 ? '-' : '+') + v.toFixed(1) + ' ' + units[u];
+  if (u === 0) return sign + v + ' ' + units[0];
+  return sign + v.toFixed(1) + ' ' + units[u];
 }
 
 function formatCount(n) {
@@ -43,7 +44,7 @@ function section(title, rows) {
   } else {
     body = `<table>
       <thead><tr>
-        <th>#</th><th>Key</th><th>Î” bytes</th><th>Î” objs</th>
+        <th>#</th><th>Key</th><th>Delta bytes</th><th>Delta objs</th>
       </tr></thead>
       <tbody>${rows.map((r, i) => rowHtml(r, i)).join('')}</tbody>
     </table>`;
