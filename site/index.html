@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>pprof-diff report</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>pprof-diff</h1>
+      <p class="lead">
+        Heap profile diff viewer. Generate JSON with
+        <code>pprof-diff before.prof after.prof --json out.json</code>
+        then open it here.
+        <a href="https://github.com/1rhino2/pprof-diff">Source</a>
+      </p>
+    </header>
+
+    <div class="toolbar">
+      <button type="button" class="primary" id="demo-btn">Load demo</button>
+      <label class="file-btn">
+        Open diff.json
+        <input type="file" id="json-file" accept=".json,application/json">
+      </label>
+      <span class="hint">CLI: dub run -- a.prof b.prof --json report.json</span>
+    </div>
+
+    <div id="report"></div>
+
+    <footer>
+      Static viewer for pprof-diff JSON. Profiles are parsed locally by the D CLI; this page never uploads .prof files.
+    </footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

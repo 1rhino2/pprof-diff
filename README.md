@@ -34,7 +34,7 @@ New since before
 | | pprof-diff | `go tool pprof -base` |
 |---|:---:|:---:|
 | Text diff report | yes | via `top` / export |
-| JSON / static HTML | yes | no |
+| JSON / static HTML / [web viewer](https://1rhino2.github.io/pprof-diff/) | yes | no |
 | Flame graphs | no | yes |
 | Single static binary | yes (D) | via Go install |
 
@@ -62,6 +62,15 @@ pprof-diff before.prof after.prof [options]
 | `--by stack` | stack | Group by full stack, `leaf`, or rough `type` |
 | `--json path` | | Write machine-readable diff |
 | `--html path` | | Write single-page HTML table |
+
+### Web viewer
+
+Live demo: **https://1rhino2.github.io/pprof-diff/**
+
+1. Run `pprof-diff before.prof after.prof --json report.json`
+2. Open the site and choose **Open diff.json**, or use **Load demo**
+
+The site only reads JSON produced by the CLI (no `.prof` upload in the browser).
 
 ### Synthetic examples (repo)
 
